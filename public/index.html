@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="submit">
+    </form>
+    <ul id="file-list">
+    </ul>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+        $(function () {
+                $.get('/download', function (data) {
+                    var lis = '';
+                    for (var i = 0; i < data.length; i += 1) {
+                    lis += `<li>file name: ${data[i].filename} <br> upload time: ${data[i].uploadDate} <br> <a href="/download/${data[i]._id}/${data[i].filename}">download</a></li>`;
+                    }
+                    $('#file-list').append(lis);
+                });
+        });
+    </script>
+</body>
+</html>
