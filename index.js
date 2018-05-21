@@ -3,6 +3,10 @@ var MongoClient = mongodb.MongoClient;
 var middleware = require('./middleware');
 var routes = require('./routes');
 var dbConfig = require('./db-config');
+var fs = require('fs')
+if (!fs.existsSync('downloads')){
+  fs.mkdirSync('downloads');
+}
 
     var app = require('express')();
 
