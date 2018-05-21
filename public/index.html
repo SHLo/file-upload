@@ -17,7 +17,7 @@
                 $.get('/download', function (data) {
                     var lis = '';
                     for (var i = 0; i < data.length; i += 1) {
-                    lis += `<li>file name: ${data[i].filename} <br> upload time: ${data[i].uploadDate} <br> <a href="/download/${data[i]._id}/${data[i].filename}">download</a></li>`;
+                    lis += `<li>file name: ${data[i].filename}  <a href="/download/${data[i].filename}">download</a></li>`;
                     }
                     $('#file-list').append(lis);
                 });
